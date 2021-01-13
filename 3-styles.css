@@ -1,0 +1,127 @@
+body {
+    display: flex;
+    justify-content: center;
+    padding-top: 25vh;
+    align-content: center;
+}
+
+.menu-open {
+    opacity: 0;
+    margin-bottom: 35px;
+}
+
+.menu-open-button, .fa {
+    height: 40px;
+    width: 40px;
+    border: 1px solid rgb(75, 75, 75);
+    border-radius: 50%;
+    background-color: rgb(207, 0, 0);
+}
+
+.menu-open-button {
+    position: absolute;
+    transition: transform .2s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Menu button */
+    .menu-open-button .menu-line {
+        width: 40%;
+        height: 2px;
+        background-color: white;
+    }
+
+    .menu-open-button .menu-line-2 {
+        opacity: 0;
+    }
+    .menu-open-button .menu-line-1 {
+        position: relative;
+        top: 2px;
+        transform: rotateZ(-45deg);
+    }
+    .menu-open-button .menu-line-3 {
+        position: relative;
+        top: -2px;
+        transform: rotateZ(45deg);
+    }
+
+/* Menu Button Click */
+    .menu-open:checked + .menu-open-button .menu-line-1 {
+        transform: rotateZ(0deg);
+    }
+
+    .menu-open:checked + .menu-open-button .menu-line-2 {
+        opacity: 100;
+        margin: 5px;
+    }
+
+    .menu-open:checked + .menu-open-button .menu-line-3 {
+        transform: rotateZ(0deg);
+    }
+
+    .menu-open:checked + .menu-open-button:hover {
+        transform: scale(2);
+    }
+
+    .menu-open:checked + .menu-open-button {
+        transform: scale(1.5);
+    }
+
+/* List Items */
+
+    .menu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 20vh;
+        position: relative;
+    }
+
+    .fa {
+        position: relative;
+        color: white;
+        margin-bottom: 10px;
+        transition: transform .5s ease;
+        z-index: -1;
+    }
+
+    .fa::before {
+        position: relative;
+        left: 12px;
+        top: 12px;
+        background-color: inherit;
+    }
+
+    .menu-item:hover .fa {
+        background-color: white;
+        color: rgb(207, 0, 0);
+    }
+
+/* List Items Slides */
+
+    .menu-open:checked ~ .menu-item {
+        transition: transfrom 0.5s ease;
+    }
+
+    .menu-open:checked ~ .menu-item .fa-area-chart {
+        transform: translateY(-3rem);
+    }
+
+    .menu-open:checked ~ .menu-item .fa-bar-chart {
+        transform: translateY(-6rem);
+    }
+
+    .menu-open:checked ~ .menu-item .fa-line-chart {
+        transform: translateY(-10rem);
+    }
+
+    .menu-open:checked ~ .menu-item .fa-pie-chart {
+        transform: translateY(-13rem);
+    }
+
+    .menu-open:checked ~ .menu-item .fa-table {
+        transform: translateY(-16rem);
+    }
